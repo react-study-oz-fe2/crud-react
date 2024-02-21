@@ -3,7 +3,7 @@ import './App.css'
 import ExpenseForm from './components/ExpenseForm'
 import ExpenseList from './components/ExpenseList'
 import Alert from './components/Alert'
-
+// 주석
 const App = () => {
   const [expenses, setExpenses] = useState([
     { id: 1, charge: '콜라', amount: 2000 },
