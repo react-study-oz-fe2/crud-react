@@ -1,0 +1,5 @@
+- 수정하기 버튼 있는 칸에서 바로 수정 가능하게 로직 변경
+- drag&drop
+- modal
+- localstorage
+- JSON server 사용
