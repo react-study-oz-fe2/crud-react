@@ -1,5 +1,5 @@
 import './ExpenseList.css'
-import ExpenseItem from './ExpenseItem'
+import ExpenseItem from './ExpenseItem/ExpenseItem'
 import { MdDelete } from 'react-icons/md'
 
 const ExpenseList = ({
