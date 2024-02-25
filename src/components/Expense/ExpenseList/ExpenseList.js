@@ -9,10 +9,6 @@ const ExpenseList = ({ expenses, setExpenses, handleAlert }) => {
     handleAlert({ type: 'danger', text: '아이템이 삭제되었습니다.' })
   }
 
-  const handleEdit = (id) => {
-    const expense = expenses.find((item) => item.id === id)
-  }
-
   const clearItems = () => {
     setExpenses([])
   }
@@ -24,9 +20,11 @@ const ExpenseList = ({ expenses, setExpenses, handleAlert }) => {
           return (
             <ExpenseItem
               key={index}
+              expenses={expenses}
+              setExpenses={setExpenses}
               expense={expense}
               handleDelete={handleDelete}
-              handleEdit={handleEdit}
+              handleAlert={handleAlert}
             />
           )
         })}

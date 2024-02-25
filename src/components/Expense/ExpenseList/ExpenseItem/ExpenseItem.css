@@ -44,3 +44,14 @@
 .edit-btn {
   color: var(--mainGreen);
 }
+
+.edit {
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+  color: #4caf50;
+}
+
+.edit:nth-child(2) {
+  text-align: right;
+}
