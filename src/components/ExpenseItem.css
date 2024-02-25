@@ -20,6 +20,12 @@
   justify-content: space-between;
 }
 
+.info input {
+  border-width: 0;
+  color:darkseagreen;
+  width: 300px;
+}
+
 .expense {
   margin-right: 2rem;
 }

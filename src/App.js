@@ -87,8 +87,8 @@ const App = () => {
 
         <div style={{ width: '100%', backgroundColor: 'white', padding: '1rem' }}>
           <ExpenseForm
-            charge={charge}
             edit={edit}
+            charge={charge}
             handleCharge={handleCharge}
             amount={amount}
             handleAmount={handleAmount}
@@ -103,6 +103,14 @@ const App = () => {
             handleDelete={handleDelete}
             handleEdit={handleEdit}
             clearItems={clearItems}
+
+            id={id}
+            edit={edit}
+            charge={charge}
+            handleCharge={handleCharge}
+            amount={amount}
+            handleAmount={handleAmount}
+            handleSubmit={handleSubmit}
           />
         </div>
 

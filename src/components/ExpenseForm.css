@@ -1,19 +1,16 @@
 .form-center {
   display: flex;
 }
-
-.from-group {
+.form-group {
   padding: 1rem 0.75rem;
   flex: 1;
 }
-
 label {
   display: block;
   color: var(--secondColor);
   font-size: 1rem;
   text-transform: capitalize;
 }
-
 .form-control {
   background-color: transparent;
   border: none;

@@ -8,7 +8,17 @@ const ExpenseList = ({
   handleDelete,
   handleEdit,
   clearItems,
+
+  id,
+  edit,
+  charge,
+  handleCharge,
+  amount,
+  handleAmount,
+  handleSubmit,
 }) => {
+
+
   return (
     <>
       <ul className="list">
@@ -19,6 +29,14 @@ const ExpenseList = ({
               expense={expense}
               handleDelete={handleDelete}
               handleEdit={handleEdit}
+
+              id={id}
+              edit={edit}
+              charge={charge}
+              handleCharge={handleCharge}
+              amount={amount}
+              handleAmount={handleAmount}
+              handleSubmit={handleSubmit}
             />
           )
         })}
