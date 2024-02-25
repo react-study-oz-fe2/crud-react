@@ -1,14 +1,41 @@
 import { MdSend } from 'react-icons/md'
 import './ExpenseForm.css'
+import { useState } from 'react'
 
-const ExpenseForm = ({
-  charge,
-  edit,
-  handleCharge,
-  amount,
-  handleAmount,
-  handleSubmit,
-}) => {
+const ExpenseForm = ({ setExpenses, handleAlert }) => {
+  const [expense, setExpense] = useState({
+    charge: '',
+    amount: 0,
+  })
+
+  const handleInput = (e) => {
+    setExpense((expense) => ({
+      ...expense,
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const { charge, amount } = expense
+
+    if (charge !== '' && amount > 0) {
+      const newExpense = { id: crypto.randomUUID(), charge, amount }
+      setExpenses((expenses) => [...expenses, newExpense])
+      handleAlert({ type: 'success', text: '아이템이 생성되었습니다.' })
+    } else {
+      handleAlert({
+        type: 'danger',
+        text: 'charge는 빈 값일 수 없으며 amount 값은 0보다 커야 합니다.',
+      })
+    }
+
+    setExpense(() => ({
+      charge: '',
+      amount: 0,
+    }))
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-center">
@@ -20,8 +47,8 @@ const ExpenseForm = ({
             id="charge"
             name="charge"
             placeholder="예) 콜라"
-            value={charge}
-            onChange={handleCharge}
+            value={expense.charge}
+            onChange={handleInput}
           />
         </div>
         <div className="form-group">
@@ -32,13 +59,13 @@ const ExpenseForm = ({
             id="amount"
             name="amount"
             placeholder="예) 100"
-            value={amount}
-            onChange={handleAmount}
+            value={expense.amount}
+            onChange={handleInput}
           />
         </div>
       </div>
       <button type="submit" className="btn">
-        {edit ? '수정' : '제출'}
+        제출
         <MdSend className="btn-icon" />
       </button>
     </form>

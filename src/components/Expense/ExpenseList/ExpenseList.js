@@ -2,17 +2,25 @@ import './ExpenseList.css'
 import ExpenseItem from './ExpenseItem/ExpenseItem'
 import { MdDelete } from 'react-icons/md'
 
-const ExpenseList = ({
-  expenses,
-  initialExpenses,
-  handleDelete,
-  handleEdit,
-  clearItems,
-}) => {
+const ExpenseList = ({ expenses, setExpenses, handleAlert }) => {
+  const handleDelete = (id) => {
+    const newExpense = expenses.filter((expense) => expense.id !== id)
+    setExpenses(newExpense)
+    handleAlert({ type: 'danger', text: '아이템이 삭제되었습니다.' })
+  }
+
+  const handleEdit = (id) => {
+    const expense = expenses.find((item) => item.id === id)
+  }
+
+  const clearItems = () => {
+    setExpenses([])
+  }
+
   return (
     <>
       <ul className="list">
-        {initialExpenses.map((expense, index) => {
+        {expenses.map((expense, index) => {
           return (
             <ExpenseItem
               key={index}
