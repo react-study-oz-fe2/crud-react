@@ -2,16 +2,16 @@ import './ExpenseList.css'
 import ExpenseItem from './ExpenseItem/ExpenseItem'
 import { MdDelete } from 'react-icons/md'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import { useState } from 'react'
+import DelModal from '../../DelModal/DelModal'
 
 const ExpenseList = ({ expenses, setExpenses, handleAlert }) => {
+  const [modalOpen, setModalOpen] = useState(false)
+
   const handleDelete = (id) => {
     const newExpense = expenses.filter((expense) => expense.id !== id)
     setExpenses(newExpense)
     handleAlert({ type: 'danger', text: '아이템이 삭제되었습니다.' })
-  }
-
-  const clearItems = () => {
-    setExpenses([])
   }
 
   const onDragEnd = (result) => {
@@ -49,11 +49,19 @@ const ExpenseList = ({ expenses, setExpenses, handleAlert }) => {
         </Droppable>
       </DragDropContext>
       {expenses.length > 0 ? (
-        <button className="btn" onClick={clearItems}>
+        <button className="btn" onClick={() => setModalOpen(true)}>
           목록 지우기
           <MdDelete className="btn-icon" />
         </button>
       ) : null}
+
+      {modalOpen && (
+        <DelModal
+          setModalOpen={setModalOpen}
+          expenses={expenses}
+          setExpenses={setExpenses}
+        />
+      )}
     </>
   )
 }
