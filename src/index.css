@@ -33,6 +33,7 @@ h1 {
   background-color: var(--primaryColor);
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .btn-icon {

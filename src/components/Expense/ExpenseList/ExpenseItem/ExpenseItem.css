@@ -6,7 +6,7 @@
   border: 1px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
-  transition: all 0.3s linear;
+  transition: scale 0.3s linear;
 }
 
 .item:hover {
@@ -43,4 +43,15 @@
 
 .edit-btn {
   color: var(--mainGreen);
+}
+
+.edit {
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+  color: #4caf50;
+}
+
+.edit:nth-child(2) {
+  text-align: right;
 }
