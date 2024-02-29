@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const DelModal = ({ setModalOpen, expenses, setExpenses }) => {
   const modalRef = useRef(null)
-  const [expenseList, setExpenseList] = useState(null)
-  const [allDel, setAllDel] = useState(false)
+  const [expenseList, setExpenseList] = useState([])
+  const allDel = expenseList.every((expense) => expense.checked)
 
   useEffect(() => {
     setExpenseList(
@@ -34,7 +34,6 @@ const DelModal = ({ setModalOpen, expenses, setExpenses }) => {
   }
 
   const handleAll = () => {
-    setAllDel(!allDel)
     const newexpenseList = expenseList.map((expense) => ({
       ...expense,
       checked: !allDel,
